@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>silly sweet treat generator</title>
+    <style>
+
+        /* STYLE FOR THE INPUT FIELD */
+        #charInput {
+            font-family: "ohno-softie-variable";
+            font-size: 5rem;
+            width: 5rem;
+            border-radius: 10px;
+            text-align: center;
+            border-color:rgb(117, 65, 32);
+            border-style: solid;
+            color: rgb(117, 65, 32);
+            
+        }
+
+        /* STYLE FOR THE SUBMIT BUTTON */
+        #submitButton {
+            width: 7rem;
+            height: 5rem;
+            background-color: rgb(255, 192, 211);
+            color: rgb(117, 65, 32);
+            font-family:"ohno-softie-variable";
+            font-weight: 600;
+            font-size: 1.5rem;
+            border-radius: 10px;
+            border-color: rgb(117, 65, 32);
+            margin: 1rem;
+            border-style: solid;
+        }
+        
+        #submitButton:hover{
+            background-color:rgb(117, 65, 32);
+            color: rgb(255, 192, 211);
+            border-color:rgb(117, 65, 32);
+            transition: 0.4s ease-in-out;
+        }
+        
+        /* STYLE FOR THE IMAGE */
+        #displayedImage {
+            display: none; /* This line is mandatory */
+            max-width: 250px;
+            max-height: 300px;
+            border-radius: 20px;
+            filter: drop-shadow(3px 3px 3px rgb(255, 157, 186));
+            margin-inline: auto;
+            padding: 0.5rem;
+        }
+
+        @media (max-width: 450px){
+            p{
+                font-size: 1rem;
+            }   
+        }
+
+        body{
+            background-color: rgb(254, 228, 245);
+        }
+
+        h1{
+            font-family: "ohno-softie-variable";
+            text-align: center;
+            color: rgb(223, 45, 98);
+            font-size: 3rem;
+            padding-top: 3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        p{
+            font-family: "ohno-softie-variable";
+            text-align: center;
+            font-size: 1.5rem;
+            color:rgb(117, 65, 32);
+        }
+
+        .container{
+            display: block;
+            text-align: center;
+            max-width: fit-content;
+            margin-inline: auto;
+            padding: 3rem;
+            background-color: white;
+            border-radius: 15px;
+
+        }
+
+    </style>
+    <link rel="stylesheet" href="https://use.typekit.net/ark3zar.css">
+</head>
+<body>
+<h1>Silly Sweet Treat Generator</h1>
+<p>Type any letter from A-Z to get your treat</p>
+
+<div class="container">
+    <!-- INPUT FIELD FOR 1 CHARACTER -->
+    <input type="text" id="charInput" maxlength="1">
+
+    <!-- BUTTON TO DISPLAY IMAGE -->
+    <button onclick="displayImage()" id="submitButton">Get Treat!</button>
+
+    <!-- IMAGE TO DISPLAY -->
+    <img id="displayedImage" src="" alt="Displayed Image">
+</div>
+
+
+    <!-- Image Display Script Below -->
+    <script>
+        // Array of images
+        // DIRECTIONS: UPDATE THE URLS WITH THE RELATIVE LINKS OF YOUR IMAGES
+        const images = [
+            "https://i.pinimg.com/736x/38/4a/48/384a484b332d6e5c970f3ebf47ecb20f.jpg", //A
+            "https://i.pinimg.com/736x/9f/33/c3/9f33c3878a70f0638d83a662a673303c.jpg", //B
+            "https://i.pinimg.com/736x/f7/bb/bf/f7bbbf1646a5f91d5dbc0788f94004a6.jpg", //C
+            "https://i.pinimg.com/736x/ae/0b/27/ae0b276b4b38821a0802653b961da49b.jpg", //D
+            "https://i.pinimg.com/736x/7f/31/62/7f316234a12ba7f136282d3afcaf68e5.jpg", //E
+            "https://i.pinimg.com/736x/99/85/0f/99850fcb2268ba7f5a0063215c7abf1f.jpg", //F
+            "https://i.pinimg.com/736x/ff/89/fa/ff89fa1aec0f383703a3c0f0491237ba.jpg", //G
+            "https://i.pinimg.com/736x/08/1e/43/081e43b4b3de27389a030a8aa737230b.jpg", //H
+            "https://i.pinimg.com/736x/5b/8b/f4/5b8bf403fce1b448514150e5fc73370b.jpg", //I
+            "https://i.pinimg.com/736x/11/b3/c7/11b3c7538b62613ef5cba425f6345f2a.jpg", //J
+            "https://i.pinimg.com/736x/01/25/bb/0125bb5cc6de50b6b8d14fb838e48b8a.jpg", //K
+            "https://i.pinimg.com/736x/45/f3/82/45f3827cd2b03553f52ddbb6c392f983.jpg", //L
+            "https://i.pinimg.com/736x/c2/1c/d9/c21cd94d3c85a9e5ef08a43a87534f73.jpg", //M
+            "https://i.pinimg.com/736x/1a/43/6c/1a436cb9cd4ae268c40573d34cf7995c.jpg", //N
+            "https://i.pinimg.com/736x/82/dc/3d/82dc3d4fe0e573a693d409dc1d4b0ec4.jpg", //O
+            "https://i.pinimg.com/736x/08/8d/46/088d46a1d2161155fe878912335c42b3.jpg", //P
+            "https://i.pinimg.com/736x/d4/06/ce/d406ced7c313d4de9eb67da86346cee8.jpg", //Q
+            "https://i.pinimg.com/736x/af/b0/72/afb072b4fb215eb2b4df1ab3a9ce248f.jpg", //R
+            "https://i.pinimg.com/736x/44/73/99/4473994ddfe6f466666fea94b296583e.jpg", //S
+            "https://i.pinimg.com/736x/02/d4/c3/02d4c38838e7a623354b554af045bf90.jpg", //T
+            "https://i.pinimg.com/736x/1c/0c/26/1c0c26574096b772178abe2bbdcef275.jpg", //U
+            "https://i.pinimg.com/736x/86/e8/b2/86e8b28e4e8f9ae2fb77e3b91d1d7be3.jpg", //V
+            "https://i.pinimg.com/736x/b7/39/06/b739061c351470ed702c6c3834703903.jpg", //W
+            "https://i.pinimg.com/736x/2d/cd/7d/2dcd7d4e7deaff9d87e011d126976830.jpg", //X
+            "https://i.pinimg.com/736x/ee/6a/f7/ee6af732a9e89ea830dd3955ce675f1f.jpg", //Y
+            "https://i.pinimg.com/736x/c1/28/cc/c128cc40d975909b5cd344df1e3eca20.jpg"  //Z
+        ];
+
+        function displayImage() {
+            const input = document.getElementById("charInput").value.toUpperCase();
+            const imgElement = document.getElementById("displayedImage");
+            
+            // Assign an image based on character (A-Z)
+            const index = input.charCodeAt(0) - 65; // 'A' is 65 in ASCII
+            if (index >= 0 && index < images.length) {
+                imgElement.src = images[index];
+                imgElement.style.display = "block";
+            } else {
+                /* 
+                alert("Please enter a letter between A and Z.");
+                imgElement.style.display = "none";
+                */
+
+                // IF INVALID INPUT IS ENTERED, DISPLAY ALTERNATE IMAGE
+                imgElement.src = "https://i.pinimg.com/736x/b6/11/ec/b611ec7900022f191ac223f7cbf62318.jpg"
+                imgElement.style.display = "block";
+            }
+        }
+    </script>
+
+</body>
+</html>
