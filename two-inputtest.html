@@ -14,7 +14,7 @@
         /* STYLE FOR THE INPUT FIELD */
         #charInput1 {
             font-family: "OmoType Std";
-            font-size: 4rem;
+            font-size: 2rem;
             color: rgb(102, 58, 24);
             text-align: center;
             width: 8rem;
@@ -23,13 +23,13 @@
             border-style: solid;
             border-width: 3px;
             border-color: rgb(102, 58, 24);
-            background-color: rgba(249, 182, 218, 0.5);
+            background-color: rgba(225, 182, 249, 0.5);
             position:relative;
         }
 
         #charInput2 {
             font-family: "OmoType Std";
-            font-size: 4rem;
+            font-size: 2rem;
             color: rgb(102, 58, 24);
             text-align: center;
             width: 8rem;
@@ -44,13 +44,13 @@
 
         input::placeholder{
             font-family: "OmoType Std";
-            font-size: 1rem;
+            font-size: 1.1rem;
             color: rgb(147, 123, 104);
             text-align: center;
         }
 
         #charInput1:hover{
-            background-color: rgba(249, 182, 218);
+            background-color: rgb(225, 182, 249);
             transition: 0.3s ease-in-out;
         }
 
@@ -77,14 +77,18 @@
         #submitButton:hover{
             background-color: rgb(221, 97, 155);
             transition: 0.5s ease-in-out;
+            transform: scale(1.1);
             color: white
+            
         }
 
         /* STYLE FOR THE IMAGE */
         #displayedImage {
             display: none; /* This line is mandatory */
-            max-width: 500px;
+            max-width: 650px;
+            max-height: 450px;
             margin: 5%;
+            padding: 5%;
             margin-inline: auto;
         }
 
@@ -115,21 +119,24 @@
             padding: 2%;
             
             display:flex;
-            justify-content: space-between;
+            justify-content: space-evenly;
             align-items: center;
             bottom: 0;
         }
 
         .imgcontainer{
             background-color:lightblue;
+            border-style: solid;
+            border-color: rgb(102, 58, 24);
+            border-width: 4px;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 30rem;
-            width: 35rem;
+            width: 50rem;
             margin-inline: auto;
             margin-top: 3%;
-            padding-top: 2%;
+            padding: 2%;
             border-radius: 40px;
         }
 
@@ -170,128 +177,134 @@
             //Remember to use if else statements to capture error conditions
             
             if (input1_letter === "A" && input2_letter === "A"){
-                 imgElement.src = "../images/hk-hk.png"
+                 imgElement.src = "images/hk-hk.png"
                  imgElement.style.display = "block";
             }
             else if (input1_letter === "A" && input2_letter === "E"){
-                imgElement.src = "../images/hk-cin.png"
+                imgElement.src = "images/hk-cin.png"
                 imgElement.style.display = "block";
             }
 
             else if (input1_letter === "A" && input2_letter === "I"){
-                imgElement.src = "../images/hk-mm.png"
+                imgElement.src = "images/hk-mm.png"
                 imgElement.style.display = "block";
             }
 
             else if (input1_letter === "A" && input2_letter === "O"){
-                imgElement.src = "../images/hk-kur.png"
+                imgElement.src = "images/hk-kur.png"
                 imgElement.style.display = "block";
             }
 
             else if (input1_letter === "A" && input2_letter === "U"){
-                imgElement.src = "../images/hk-pp.png"
+                imgElement.src = "images/hk-pp.png"
                 imgElement.style.display = "block";
             }
             
 
             else if (input1_letter === "E" && input2_letter === "E"){
-                 imgElement.src = "../images/cin-cin.png"
+                 imgElement.src = "images/cin-cin.png"
                  imgElement.style.display = "block";
             }
             else if (input1_letter === "E" && input2_letter === "A"){
-                imgElement.src = "../images/cin-hk.png"
+                imgElement.src = "images/cin-hk.png"
                 imgElement.style.display = "block";
             }
 
             else if (input1_letter === "E" && input2_letter === "I"){
-                imgElement.src = "../images/cin-mm.png"
+                imgElement.src = "images/cin-mm.png"
                 imgElement.style.display = "block";
             }
 
             else if (input1_letter === "E" && input2_letter === "O"){
-                imgElement.src = "../images/cin-kur.png"
+                imgElement.src = "images/cin-kur.png"
                 imgElement.style.display = "block";
             }
 
             else if (input1_letter === "E" && input2_letter === "U"){
-                imgElement.src = "../images/cin-pp.png"
+                imgElement.src = "images/cin-pp.png"
                 imgElement.style.display = "block";
             }
 
 
             else if (input1_letter === "I" && input2_letter === "I"){
-                 imgElement.src = "../images/mm-mm.png"
+                 imgElement.src = "images/mm-mm.png"
                  imgElement.style.display = "block";
             }
             else if (input1_letter === "I" && input2_letter === "A"){
-                imgElement.src = "../images/mm-hk.png"
+                imgElement.src = "images/mm-hk.png"
                 imgElement.style.display = "block";
             }
 
             else if (input1_letter === "I" && input2_letter === "E"){
-                imgElement.src = "../images/mm-cin.png"
+                imgElement.src = "images/mm-cin.png"
                 imgElement.style.display = "block";
             }
 
             else if (input1_letter === "I" && input2_letter === "O"){
-                imgElement.src = "../images/mm-kur.png"
+                imgElement.src = "images/mm-kur.png"
                 imgElement.style.display = "block";
             }
 
             else if (input1_letter === "I" && input2_letter === "U"){
-                imgElement.src = "../images/mm-pp.png"
+                imgElement.src = "images/mm-pp.png"
                 imgElement.style.display = "block";
             }
 
 
             else if (input1_letter === "O" && input2_letter === "O"){
-                 imgElement.src = "../images/kur-kur.png"
+                 imgElement.src = "images/kur-kur.png"
                  imgElement.style.display = "block";
             }
             else if (input1_letter === "O" && input2_letter === "A"){
-                imgElement.src = "../images/kur-hk.png"
+                imgElement.src = "images/kur-hk.png"
                 imgElement.style.display = "block";
             }
 
             else if (input1_letter === "O" && input2_letter === "E"){
-                imgElement.src = "../images/kur-cin.png"
+                imgElement.src = "images/kur-cin.png"
                 imgElement.style.display = "block";
             }
 
             else if (input1_letter === "O" && input2_letter === "I"){
-                imgElement.src = "../images/kur-mm.png"
+                imgElement.src = "images/kur-mm.png"
                 imgElement.style.display = "block";
             }
 
             else if (input1_letter === "O" && input2_letter === "U"){
-                imgElement.src = "../images/kur-pp.png"
+                imgElement.src = "images/kur-pp.png"
                 imgElement.style.display = "block";
             }
 
 
 
             else if (input1_letter === "U" && input2_letter === "U"){
-                 imgElement.src = "../images/pp-pp.png"
+                 imgElement.src = "images/hk-hk.png"
                  imgElement.style.display = "block";
             }
             else if (input1_letter === "U" && input2_letter === "A"){
-                imgElement.src = "../images/pp-hk.png"
+                imgElement.src = "images/pp-hk.png"
                 imgElement.style.display = "block";
             }
 
             else if (input1_letter === "U" && input2_letter === "E"){
-                imgElement.src = "../images/pp-cin.png"
+                imgElement.src = "images/pp-cin.png"
                 imgElement.style.display = "block";
             }
 
             else if (input1_letter === "U" && input2_letter === "I"){
-                imgElement.src = "../images/pp-mm.png"
+                imgElement.src = "images/pp-mm.png"
                 imgElement.style.display = "block";
             }
 
             else if (input1_letter === "U" && input2_letter === "O"){
-                imgElement.src = "../images/pp-kur.png"
+                imgElement.src = "images/pp-kur.png"
                 imgElement.style.display = "block";
+            }
+            
+            else{
+                imgElement.src = "https://i.pinimg.com/736x/84/3d/e7/843de792a728b00f295e89beb4564698.jpg"
+                imgElement.style.display = "block";
+                alert("Please enter 2 vowels!")
             }
 
         }
